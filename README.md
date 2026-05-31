@@ -54,7 +54,7 @@ The dataset contains Tesla vehicle delivery information from 2015 to 2025, inclu
 
 ### 7. Time Series Forecasting
 
-* Forecasted future Tesla deliveries using SARIMA/Holt-Winters forecasting techniques
+* Forecasted future Tesla deliveries using Holt-Winters forecasting techniques
 * Predicted delivery trends for the next 12 months
 
 ## Evaluation Metrics
