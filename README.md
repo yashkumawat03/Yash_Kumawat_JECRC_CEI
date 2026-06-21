@@ -1,127 +1,130 @@
-# Week 4 Assignment: CIFAR-10 Image Classification using ANN and CNN
+# Text Generation using RNN, LSTM, and GRU
 
 ## Overview
 
-This project focuses on image classification using the CIFAR-10 dataset. The objective is to compare the performance of Artificial Neural Networks (ANNs) and Convolutional Neural Networks (CNNs) on a multi-class image classification task and analyze the impact of different training strategies.
+This project demonstrates text generation using three popular recurrent neural network architectures:
+
+* Simple RNN (Recurrent Neural Network)
+* LSTM (Long Short-Term Memory)
+* GRU (Gated Recurrent Unit)
+
+The objective is to train these models on a custom text corpus and generate meaningful sequences by predicting the next word in a sentence.
+
+---
+
+## Learning Objectives
+
+* Understand sequence modeling in Natural Language Processing (NLP)
+* Learn text preprocessing and tokenization
+* Create n-gram sequences for next-word prediction
+* Implement and compare RNN, LSTM, and GRU architectures
+* Generate text using trained deep learning models
+* Analyze model performance using loss and accuracy metrics
 
 ---
 
 ## Dataset
 
-The CIFAR-10 dataset contains:
+A custom text corpus related to Machine Learning and Artificial Intelligence was created and used for training.
 
-- 50,000 training images
-- 10,000 test images
-- 10 classes:
-  - Airplane
-  - Automobile
-  - Bird
-  - Cat
-  - Deer
-  - Dog
-  - Frog
-  - Horse
-  - Ship
-  - Truck
+Example topics included:
 
-Image size: **32 × 32 × 3 (RGB)**
-
----
-
-## Project Workflow
-
-### 1. Data Loading and Preprocessing
-- Loaded CIFAR-10 dataset from TensorFlow/Keras.
-- Visualized sample images from each class.
-- Normalized pixel values from 0–255 to 0–1 for stable training.
-
-### 2. Baseline ANN Model
-- Flatten layer
-- Dense layers with ReLU activation
-- Dropout regularization
-- Softmax output layer
-
-### 3. Baseline CNN Model
-- Conv2D layers
-- Batch Normalization
-- Max Pooling
-- Dense classification layer
-- Softmax output layer
-
-### 4. Model Training
-- Optimizer: Adam
-- Loss Function: Sparse Categorical Crossentropy
-- Epochs: 10
-- Validation Split: 20%
-
-### 5. Performance Comparison
-- Compared validation accuracy curves of ANN and CNN.
-- Evaluated test accuracy of both models.
-
----
-
-## Advanced Experiments
-
-### Deep ANN
-- Increased the number of Dense layers.
-- Analyzed performance improvement over the baseline ANN.
-
-### Enhanced CNN
-- Increased filter sizes:
-  - 32
-  - 64
-  - 128
-- Improved feature extraction capability.
-
-### Extended Training
-- Increased training duration from 10 to 20 epochs.
-- Observed model learning behavior.
-
-### EarlyStopping
-- Implemented EarlyStopping callback.
-- Prevented overfitting and restored best model weights.
-
-### Data Augmentation
-Applied:
-- RandomFlip
-- RandomRotation
-- RandomZoom
-
-Improved model generalization on unseen data.
-
----
-
-## Results
-
-| Model | Accuracy |
-|--------|----------|
-| ANN | 38.91% |
-| CNN | 67.68% |
-
-CNN significantly outperformed ANN by preserving spatial information and learning hierarchical image features through convolution operations.
-
----
-
-## Key Learnings
-
-- CNNs are better suited for image classification than ANNs.
-- Increasing network depth can improve learning capacity.
-- Larger convolutional filter stacks improve feature extraction.
-- Data augmentation improves generalization.
-- EarlyStopping helps reduce overfitting and unnecessary training.
+* Machine Learning
+* Deep Learning
+* Neural Networks
+* Natural Language Processing
+* Financial Forecasting
+* Data Science
 
 ---
 
 ## Technologies Used
 
-- Python
-- TensorFlow / Keras
-- NumPy
-- Pandas
-- Matplotlib
+* Python
+* TensorFlow / Keras
+* NumPy
+* Pandas
+* Matplotlib
+
+---
+
+## Project Workflow
+
+### 1. Text Preprocessing
+
+* Created a custom text corpus
+* Tokenized text using Keras Tokenizer
+* Converted words into integer sequences
+* Generated n-gram sequences
+
+### 2. Sequence Preparation
+
+* Applied padding to ensure equal sequence lengths
+* Split data into:
+
+  * Input Features (X)
+  * Target Labels (y)
+
+### 3. Model Development
+
+Three separate models were implemented:
+
+#### Simple RNN
+
+* Embedding Layer
+* SimpleRNN Layer
+* Dense Output Layer
+
+#### LSTM
+
+* Embedding Layer
+* LSTM Layer
+* Dense Output Layer
+
+#### GRU
+
+* Embedding Layer
+* GRU Layer
+* Dense Output Layer
+
+### 4. Training
+
+Model improvements included:
+
+* Embedding Dimension increased
+* Hidden Units increased from 64 to 128
+* Training Epochs increased from 100 to 200
+* Generated 10 words instead of 5
+
+### 5. Evaluation
+
+Models were compared using:
+
+* Training Loss
+* Training Accuracy
+* Generated Text Quality
+
+---
+
+## Results
+
+### Observations
+
+* Simple RNN learned basic sequential patterns but struggled with long-term dependencies.
+* LSTM produced more coherent text due to its memory cell architecture.
+* GRU achieved performance similar to LSTM while requiring fewer parameters.
+* Increasing hidden units and epochs improved learning capability and text quality.
 
 ---
 
 ## Conclusion
 
-This assignment demonstrated the effectiveness of Convolutional Neural Networks for image classification tasks. Through multiple experiments involving architecture changes, training strategies, and data augmentation, the project highlighted how different design choices impact model performance and generalization ability on the CIFAR-10 dataset.
+This project provided practical experience in sequence modeling and text generation using deep learning.
+
+Among the three architectures:
+
+* RNN performed well on short sequences.
+* LSTM captured long-term dependencies effectively.
+* GRU offered a balance between performance and computational efficiency.
+
+The comparison highlights how advanced recurrent architectures improve text generation quality and are widely used in Natural Language Processing applications.
