@@ -1,130 +1,86 @@
-# Text Generation using RNN, LSTM, and GRU
+# Denoising Autoencoder on MNIST Dataset
 
 ## Overview
 
-This project demonstrates text generation using three popular recurrent neural network architectures:
+This project implements a **Denoising Autoencoder (DAE)** using TensorFlow/Keras to remove noise from handwritten digit images in the MNIST dataset. The model is trained using noisy images as input and clean images as target outputs.
 
-* Simple RNN (Recurrent Neural Network)
-* LSTM (Long Short-Term Memory)
-* GRU (Gated Recurrent Unit)
+## Objectives
 
-The objective is to train these models on a custom text corpus and generate meaningful sequences by predicting the next word in a sentence.
-
----
-
-## Learning Objectives
-
-* Understand sequence modeling in Natural Language Processing (NLP)
-* Learn text preprocessing and tokenization
-* Create n-gram sequences for next-word prediction
-* Implement and compare RNN, LSTM, and GRU architectures
-* Generate text using trained deep learning models
-* Analyze model performance using loss and accuracy metrics
-
----
+- Load and preprocess the MNIST dataset.
+- Add artificial Gaussian noise to the images.
+- Build and train a Denoising Autoencoder.
+- Generate denoised images from noisy inputs.
+- Evaluate the model's reconstruction performance.
 
 ## Dataset
 
-A custom text corpus related to Machine Learning and Artificial Intelligence was created and used for training.
+The MNIST dataset contains:
+- 60,000 training images
+- 10,000 testing images
+- Grayscale handwritten digits (0–9)
+- Image size: 28 × 28 pixels
 
-Example topics included:
+## Methodology
 
-* Machine Learning
-* Deep Learning
-* Neural Networks
-* Natural Language Processing
-* Financial Forecasting
-* Data Science
+### Data Preprocessing
+- Loaded the MNIST dataset.
+- Normalized pixel values to the range [0,1].
+- Reshaped images for convolutional neural network processing.
 
----
+### Noise Addition
+- Added Gaussian noise to create noisy versions of the images.
+- Clipped pixel values to maintain valid image ranges.
 
-## Technologies Used
+### Model Architecture
+The Denoising Autoencoder consists of:
 
-* Python
-* TensorFlow / Keras
-* NumPy
-* Pandas
-* Matplotlib
+#### Encoder
+- Conv2D Layer
+- MaxPooling2D Layer
+- Conv2D Layer
+- MaxPooling2D Layer
 
----
+#### Decoder
+- Conv2D Layer
+- UpSampling2D Layer
+- Conv2D Layer
+- UpSampling2D Layer
+- Output Conv2D Layer (Sigmoid Activation)
 
-## Project Workflow
-
-### 1. Text Preprocessing
-
-* Created a custom text corpus
-* Tokenized text using Keras Tokenizer
-* Converted words into integer sequences
-* Generated n-gram sequences
-
-### 2. Sequence Preparation
-
-* Applied padding to ensure equal sequence lengths
-* Split data into:
-
-  * Input Features (X)
-  * Target Labels (y)
-
-### 3. Model Development
-
-Three separate models were implemented:
-
-#### Simple RNN
-
-* Embedding Layer
-* SimpleRNN Layer
-* Dense Output Layer
-
-#### LSTM
-
-* Embedding Layer
-* LSTM Layer
-* Dense Output Layer
-
-#### GRU
-
-* Embedding Layer
-* GRU Layer
-* Dense Output Layer
-
-### 4. Training
-
-Model improvements included:
-
-* Embedding Dimension increased
-* Hidden Units increased from 64 to 128
-* Training Epochs increased from 100 to 200
-* Generated 10 words instead of 5
-
-### 5. Evaluation
-
-Models were compared using:
-
-* Training Loss
-* Training Accuracy
-* Generated Text Quality
-
----
+### Training
+- Input: Noisy Images
+- Target: Clean Images
+- Optimizer: Adam
+- Loss Function: Binary Crossentropy
+- Epochs: 10
+- Batch Size: 128
 
 ## Results
 
-### Observations
+- Successfully trained the Denoising Autoencoder.
+- Training and validation loss decreased consistently.
+- The model effectively removed noise while preserving digit structure.
+- Generated clear reconstructed images from noisy inputs.
 
-* Simple RNN learned basic sequential patterns but struggled with long-term dependencies.
-* LSTM produced more coherent text due to its memory cell architecture.
-* GRU achieved performance similar to LSTM while requiring fewer parameters.
-* Increasing hidden units and epochs improved learning capability and text quality.
+## Observations
 
----
+- The model learned meaningful image representations.
+- Denoised outputs were significantly cleaner than noisy inputs.
+- Validation loss closely followed training loss, indicating good generalization.
+
+## Challenges
+
+- Selecting an appropriate noise level.
+- Balancing image reconstruction quality and noise removal.
+- Managing training time and computational resources.
 
 ## Conclusion
 
-This project provided practical experience in sequence modeling and text generation using deep learning.
+The Denoising Autoencoder successfully reconstructed clean handwritten digit images from noisy inputs. This project demonstrates the effectiveness of autoencoders for image denoising and image restoration tasks.
 
-Among the three architectures:
+## Technologies Used
 
-* RNN performed well on short sequences.
-* LSTM captured long-term dependencies effectively.
-* GRU offered a balance between performance and computational efficiency.
-
-The comparison highlights how advanced recurrent architectures improve text generation quality and are widely used in Natural Language Processing applications.
+- Python
+- TensorFlow / Keras
+- NumPy
+- Matplotlib
